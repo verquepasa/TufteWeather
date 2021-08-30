@@ -21,7 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dayton.py" />
     <Compile Include="geom.py" />
     <Compile Include="geom_linerange.py" />
     <Compile Include="request.py" />

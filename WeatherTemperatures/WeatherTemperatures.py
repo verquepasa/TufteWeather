@@ -9,6 +9,7 @@ import pandas as pd
 #https://www.ncdc.noaa.gov/cdo-web/orders GHCND (CSV        
 dateparse = lambda dates: [datetime.strptime(d, '%Y-%m-%d') for d in dates]
 df = pd.read_csv('2697742.csv',parse_dates=['DATE'], date_parser=dateparse)
+#df = pd.read_csv('https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/by_station/AR000877500.csv.gz',parse_dates=['DATE'], date_parser=dateparse,compression='gzip')
 df.replace( -9999 , np.nan,inplace=True)
 df['TMAX'].fillna(method='ffill',inplace=True)
 df['TMIN'].fillna(method='ffill',inplace=True)
@@ -56,7 +57,7 @@ pd.DataFrame({
 plt.bar(past['dn'], past['max']-past['min'], 0.5, past['min'],color='#EED8AE',alpha=0.5,linewidth=0)
 plt.bar(past['dn'], past['upper3s']-past['lower3s'], 0.5, past['lower3s'],color='#8B7E66',alpha=0.5,linewidth=0)
 plt.plot(thisyear['mean'],color='#303030')
-plt.axis('scaled')
+#plt.axis('scaled')
 
 
 ax = plt.axes()    
